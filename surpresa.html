@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebcd;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #no-button {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .hearts {
+            font-size: 24px;
+            color: red;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cuzinho hoje?</h1>
+    <button class="button" onclick="showHearts()">Sim</button>
+    <button id="no-button" class="button" onmouseover="moveButton()">Não</button>
+    <div class="hearts" id="hearts">❤️ ❤️ ❤️</div>
+
+    <script>
+        function showHearts() {
+            document.getElementById("hearts").style.display = "block";
+        }
+
+        function moveButton() {
+            const button = document.getElementById("no-button");
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
